@@ -142,45 +142,30 @@ public class BBDDAhorcado {
 		
     public void cleanPlayer(PlayerPojo player) {
     	
-    	//Podemos optar por borrar el registro o bien por updatearlo como si fuera inicio de partida
-    	
-    	//1. Conectar a bbdd
-    	//2. Borrar o updatear
-    	//3. Cerrar bbdd
-    	
-    	//debe existir control de excepciones
-    	
     	 Connection con = null;
 	        PreparedStatement pstmt = null;
-	        ResultSet rst = null;
-     try {
-    	 con = DriverManager.getConnection( this.servidor + "/" + this.bbdd, this.usuario, this.pass);
-    	 String sqlSelect = "SELECT * FROM partida WHERE nombre = ?";
-         PreparedStatement pstmtSelect = con.prepareStatement(sqlSelect);
-         pstmtSelect.setString(1, player.getNombre());
-         rst = pstmtSelect.executeQuery();
-         
-         if(rst.next()) {
-             String sqlUpdate = "UPDATE partida SET estado = ?, intentos = ?, palabraJuego = ?, letrasUtilizadas = ? WHERE nombre = ?";
-             PreparedStatement pstmtUpdate = con.prepareStatement(sqlUpdate);
-             
-             pstmtUpdate.setInt(1, player.getEstado());
-             pstmtUpdate.setInt(2, player.getIntentos());
-             pstmtUpdate.setString(3, player.getPalabraJuego());
-             pstmtUpdate.setString(4, player.getLetrasUtilizadas());
-             pstmtUpdate.setString(5, player.getNombre());
-            
-             
-             pstmtUpdate.executeUpdate();
-             pstmtUpdate.close();
-         }
+	       
+    	
+    	
+    	 try {
+             // 1. Conectar a bbdd
+             con = DriverManager.getConnection( this.servidor + "/" + this.bbdd, this.usuario, this.pass);
     	 
-       
-         }
+              pstmt=con.prepareStatement("delete from partida where nombre=?"); 
+             pstmt.setString(1, player.getNombre());
+             int i=pstmt.executeUpdate();
+             
+              
+              pstmt.close();
+          
+    	 }
          catch (Exception e) {
              throw new AhorcadoException("No se puede limpiar el registro Jugador"+e);
          }
+    	 
+    	 
+    }
     }
     
    
-}
+
