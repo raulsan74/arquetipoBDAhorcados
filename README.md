@@ -6,5 +6,7 @@
 
 <br>
 <br>
-
-<center>![Caso de Uso MenuBD](https://user-images.githubusercontent.com/108556884/234707828-19361d79-0fe9-4e77-8d7a-0f43fb818478.png)</center>
+<p><center>
+![Caso de Uso MenuBD](https://user-images.githubusercontent.com/108556884/234707828-19361d79-0fe9-4e77-8d7a-0f43fb818478.png)
+  
+  </p></center>
