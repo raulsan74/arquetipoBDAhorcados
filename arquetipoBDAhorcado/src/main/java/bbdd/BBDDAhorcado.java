@@ -31,7 +31,16 @@ public class BBDDAhorcado {
     }
     
     
-    
+     /**
+     * The getPlayer function retrieves a player from the database.
+     *
+     *
+     * @param nombrePlayer Filter the data that is obtained from the database
+
+     *
+     * @return A playerpojo object with the data of a player whose name is passed as a parameter
+     *
+     */
     public PlayerPojo getPlayer(String nombrePlayer) {
 		PlayerPojo player;		
 		player=new PlayerPojo();		
@@ -77,7 +86,15 @@ public class BBDDAhorcado {
 		return player;		
 	}
     
-    
+     /**
+     * The savePlayer function saves the player's information to a database.
+     *
+     *
+     * @param player Pass the player object to be saved in the database
+     *
+     * @return A boolean value, which is true if the player was saved successfully and false otherwise
+     *    
+     */
     public void savePlayer(PlayerPojo player) {
     	
     	 Connection con = null;
@@ -131,14 +148,15 @@ public class BBDDAhorcado {
             throw new AhorcadoException("No se puede guadar Información"+e);
         }
     }
-		
-		//1. Conectar a bbdd
-		//2. recuperar datos de SELECT filtrando por el nombre
-		//3. rellenar pojo con los datos. Si no se ha encontrado datos, devolver Pojo con nombre vacio
-		//4. Cerrar conexion bbdd
-		
-		//debe existir control de excepciones
-		
+    
+    /**
+     * The cleanPlayer function is used to clean the player's data in the database.
+     *
+     *
+     * @param player Get the player's name
+     *    
+     *
+     */
 		
     public void cleanPlayer(PlayerPojo player) {
     	
