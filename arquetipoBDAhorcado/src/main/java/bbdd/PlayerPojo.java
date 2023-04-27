@@ -6,11 +6,11 @@ import arquetipoBDAhorcado.*;
 
 public class PlayerPojo implements Comparable<PlayerPojo> {
 	
-	private String nombre;
-	private int estado;
-	private int intentos;
-	private String palabraJuego;
-	private String letrasUtilizadas;
+	private String nombre;  //nombre del jugador
+	private int estado;	//estado del jugador
+	private int intentos;	//intentos realizados por el jugador
+	private String palabraJuego; //palabra a averiguar
+	private String letrasUtilizadas; //letras empleadas en la partida separadas por coma
 	
 	public PlayerPojo( ){
 		this.nombre = "";
@@ -20,13 +20,7 @@ public class PlayerPojo implements Comparable<PlayerPojo> {
 		this.letrasUtilizadas="";
 	}
 	
-	/**
-	 * @param nombre
-	 * @param estado
-	 * @param intentos
-	 * @param palabraJuego
-	 * @param letrasUtilizadas
-	 */
+	
 	public PlayerPojo(Player player ){
 		String letras="";
 	
